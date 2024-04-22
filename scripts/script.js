@@ -172,6 +172,7 @@ function dance() {
 
     setTimeout(function () {
       audioDance.pause();
+      audioDance.currentTime = 0;
       characterElement.classList.add("character_spritesheet");
       characterElement.classList.remove("character_dance");
     }, 7000);

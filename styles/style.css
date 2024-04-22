@@ -3,21 +3,6 @@
   --grid-cell: calc(var(--pixel-size) * 16);
   --bg: #9fa7e4;
 }
-@media (min-width: 700px) {
-  :root {
-    --pixel-size: 3px;
-  }
-}
-@media (min-width: 1000px) {
-  :root {
-    --pixel-size: 4px;
-  }
-}
-/* @media( min-width: 1000px ) {
-  :root {
-     --pixel-size: 5px;
-  }
-} */
 
 html,
 body {
@@ -215,12 +200,42 @@ body {
   background: transparent;
   border: none;
   position: absolute;
-  bottom: calc(var(--pixel-size) * 13.9);
-  left: calc(var(--pixel-size) * 13.5);
-  width: 40px;
+  bottom: calc(var(--pixel-size) * 13.5);
+  left: calc(var(--pixel-size) * 14);
+  width: 20px;
 }
 
 .dancingBtnImage {
   width: 100%;
   filter: invert(0.4);
+}
+
+@media (min-width: 700px) {
+  :root {
+    --pixel-size: 3px;
+  }
+  .dancingBtn {
+    bottom: calc(var(--pixel-size) * 13.5);
+    left: calc(var(--pixel-size) * 13.5);
+    width: 30px;
+  }
+}
+@media (min-width: 1000px) {
+  :root {
+    --pixel-size: 4px;
+  }
+  .dancingBtn {
+    appearance: none;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    position: absolute;
+    bottom: calc(var(--pixel-size) * 13.9);
+    left: calc(var(--pixel-size) * 13.5);
+    width: 40px;
+  }
 }
