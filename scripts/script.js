@@ -3,8 +3,8 @@ let map = document.querySelector(".map");
 let characterElement = document.getElementById("character");
 const audioDance = new Audio("assets/audio/audioMusic.mp3");
 
-audioDance.volume = 0.07;
-let audioDelay = 7000;
+audioDance.volume = 0.7;
+let audioDelay = 1;
 
 let x = 90;
 let y = 34;
@@ -76,28 +76,6 @@ const directions = {
   left: "left",
   right: "right",
 };
-
-const keys = {
-  38: directions.up,
-  37: directions.left,
-  39: directions.right,
-  40: directions.down,
-};
-
-document.addEventListener("keydown", (e) => {
-  let dir = keys[e.which];
-  if (dir && held_directions.indexOf(dir) === -1) {
-    held_directions.unshift(dir);
-  }
-});
-
-document.addEventListener("keyup", (e) => {
-  let dir = keys[e.which];
-  let index = held_directions.indexOf(dir);
-  if (index > -1) {
-    held_directions.splice(index, 1);
-  }
-});
 
 let isPressed = false;
 const removePressedAll = () => {
@@ -186,13 +164,16 @@ document
   .addEventListener("mouseover", (e) => handleDpadPress(directions.down));
 
 function dance() {
-  characterElement.classList.remove("character_spritesheet");
-  characterElement.classList.add("character_dance");
+  if (audioDelay == 1) {
+    characterElement.classList.remove("character_spritesheet");
+    characterElement.classList.add("character_dance");
 
-  audioDance.play();
+    audioDance.play();
 
-  setTimeout(function () {
-    characterElement.classList.add("character_spritesheet");
-    characterElement.classList.remove("character_dance");
-  }, 7000);
+    setTimeout(function () {
+      audioDance.pause();
+      characterElement.classList.add("character_spritesheet");
+      characterElement.classList.remove("character_dance");
+    }, 7000);
+  }
 }
